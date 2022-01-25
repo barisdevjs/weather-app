@@ -18,7 +18,7 @@ function App() {
         .then(result => {
           setWeather(result);
           setQuery('');
-          console.log(result);
+          // console.log(result);
         }
         )
     }
@@ -39,7 +39,9 @@ function App() {
 
   return (
     <div className={(typeof weather.main !== 'undefined') ?
-      ((weather.main.temp > 20) ? 'App warm' : 'App') : 'App'}>
+      ((weather.main.temp > 25) ? 'App hot' :
+      ((weather.main.temp < 25 && weather.main.temp > 5) ?
+       'App warm' : 'App cold')) : 'App'}>
       <main>
         <div className="search-box">
           <input
@@ -63,17 +65,38 @@ function App() {
             <div className="weather-box">
               <div className="temp">
                 {Math.round(weather.main.temp)}°C
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather.weather[0].icon.slice(0,2)}d.png`}
+                  alt='weather'
+                  width={80}
+                  height={80}
+                />
               </div>
               <div className="weather">
                 <p>
+                  <span>Hissedilen</span>
+                  {Math.floor(weather.main.feels_like)} °C
+                </p>
+                <p>
+                  <span>Şu an</span>
                   {weather.weather[0].description}
                 </p>
-                <img
-                  src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                  alt='weather'
-                  width={100}
-                  height={100}
-                />
+                <p>
+                  <span>Basınç</span>
+                  {weather.main.pressure} mb
+                </p>
+                <p>
+                  <span>Rüzgar </span>
+                   {Math.floor(weather.wind.speed)} km/h
+                </p>
+                <p>
+                  <span>En fazla</span>
+                  {Math.floor(weather.main.temp_max)} °C
+                </p>
+                <p>
+                  <span>En az</span>
+                  {Math.floor(weather.main.temp_min)} °C
+                </p>
               </div>
             </div>
           </div>) : ('')}
