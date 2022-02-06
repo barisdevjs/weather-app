@@ -57,6 +57,7 @@ const Chart = ({following}) => {
           } 
         ]   
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[following]);
 
 
