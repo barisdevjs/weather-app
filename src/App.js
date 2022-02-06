@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Chart from './Chart';
 
 const api = {
   key: `${process.env.REACT_APP_API_KEY}`,
@@ -55,6 +56,7 @@ function App() {
   const integer = (number) => {
     return Math.floor(Math.round(number));
   }
+ 
 
   const mapped = (following) => {
     following = [...following];
@@ -124,8 +126,8 @@ function App() {
                 <img
                   src={`http://openweathermap.org/img/wn/${weather.weather[0].icon.slice(0, 2)}d.png`}
                   alt='weather'
-                  width={80}
-                  height={80}
+                  width={150}
+                  height={150}
                 />
               </div>
               <div className="weather">
@@ -155,6 +157,7 @@ function App() {
                 </p>
               </div>
             </div>
+            <Chart following={following} />
             <div className="followingdays"
             >
               {mapped(following)}
