@@ -3,7 +3,7 @@
 
 ## DEMO
 
-[I'm an inline-style link with title](https://weatherapp111.netlify.app/ "Weather App")
+[Go to Site](https://weatherapp111.netlify.app/ "Weather App")
 
 # This is a small demo video for the app
 
