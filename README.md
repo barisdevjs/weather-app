@@ -18,6 +18,11 @@ https://user-images.githubusercontent.com/84816619/152687745-54c00f54-1e23-47df-
 ---
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3c23488fc20742c1e49979a86f1402a517cbc901
 - You can search city or country depending on your language
 - You will see every component immediately updated when you hit the enter key
 - The Chart will automatically displayed based on the search key
