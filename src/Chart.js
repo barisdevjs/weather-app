@@ -8,7 +8,7 @@ const Chart = ({following}) => {
   const date = following.map(item => new Date(item.dt * 1000));
   const dateLocal = date.map(item => item.toLocaleString('default', { weekday: 'long' }));
   const temp = following.map(item => Math.floor(item.temp.day));
-
+  console.log(temp)
   // if userData changes then the chart will re-render
     useEffect(() => {
       setUserData({ 
@@ -16,13 +16,12 @@ const Chart = ({following}) => {
         datasets: [
           { 
             data: temp,       
-            label: 'Temperature', 
+            label: 'Sıcaklık', 
             backgroundColor: [
               'rgba(0, 0, 0,.5)',
               'rgba(0, 0, 0,.5)',
               'rgba(0, 0, 0,.5)', 
             ],
-            color : ['rgba(0,0,0,1)'],
             fill:true,  
             pointRadius: 1,
             pointHitRadius:4,

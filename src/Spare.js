@@ -15,11 +15,11 @@ const Chart = ({following}) => {
     datasets: [
       { 
         data: temp,       
-        label: 'Temperature', 
+        label: 'Sıcaklık', 
         backgroundColor: [
           'rgba(0, 0, 0,.5)',
           'rgba(0, 0, 0,.5)',
-          'rgba(0, 0, 0,.5)', 
+          'rgba(0, 0, 0,.5)',  
         ],
         color : ['rgba(0,0,0,1)'],
         fill:true,  
