@@ -11,13 +11,13 @@ https://user-images.githubusercontent.com/84816619/152687745-54c00f54-1e23-47df-
 
 ## Below you will see the pages of a weather app
 
-![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/screenshot1.jpg)
+![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/pics/screenshot1.jpg)
 
-![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/screenshot2.jpg)
+![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/pics/screenshot2.jpg)
 
-![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/screenshot3.jpg)
+![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/pics/screenshot3.jpg)
 
-![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/screenshot4.jpg)
+![alt text](https://github.com/barisdevjs/weather-app/blob/main/src/pics/screenshot4.jpg)
 
 ---
 
