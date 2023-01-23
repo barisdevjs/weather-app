@@ -7,7 +7,6 @@ ChartJS.register(LinearScale);
 ChartJS.register(...registerables);
 defaults.font.size=24;
 defaults.color='lightblue';
-console.log(defaults)
 const Chart1 = ({following}) => {
   const date = following.map(item => new Date(item.dt * 1000));
   const dateLocal = date.map(item => item.toLocaleString('default', { weekday: 'long' }));
