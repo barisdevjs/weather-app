@@ -34,7 +34,7 @@ function App() {
 
   
   const searchFollowing = async () => {
-    if (location.lat && location.lon) {
+    if (location?.lat && location?.lon) {
       await fetch(`${api.base2}onecall?lat=${location.lat}&lon=${location.lon}&units=metric&exclude=hourly,minutely&appid=${api.key}`)
       .then(res => res.json())
       .then(result2 => {
