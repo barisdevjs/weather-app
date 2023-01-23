@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Chart from './Chart';
+import Chart1 from './Chart';
 
 const api = {
-  key: `${process.env.REACT_APP_API_KEY}`,
-  base: 'https://api.openweathermap.org/data/2.5/'
+  key: process.env.REACT_APP_API_KEY,
+  base: 'https://api.openweathermap.org/data/2.5/',
+  base2: 'https://api.openweathermap.org/data/3.0/'
 }
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   const [weather, setWeather] = useState({});
   const [location, setLocation] = useState({ lat: '', lon: '' });
   const [following, setFollowing] = useState([]);
-  
+
 
 
   const search = async (e) => {
@@ -21,42 +22,41 @@ function App() {
         .then(res => res.json())
         .then(result => {
           setWeather(result);
-          setQuery('');
           setLocation(result.coord);
-          console.log(result);
+          setQuery('');
           searchFollowing();
         }
         )
-    }
+      }
   }
 
 
 
-  useEffect(() => {
-    if (location.lat && location.lon) {
-      searchFollowing();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location])
-
+  
   const searchFollowing = async () => {
-    await fetch(`${api.base}onecall?lat=${location.lat}&lon=${location.lon}&units=metric&exclude=hourly,minutely&appid=${api.key}`)
+    if (location.lat && location.lon) {
+      await fetch(`${api.base2}onecall?lat=${location.lat}&lon=${location.lon}&units=metric&exclude=hourly,minutely&appid=${api.key}`)
       .then(res => res.json())
       .then(result2 => {
         const array = result2.daily.slice(1, 6);
-        console.log(following);
         setFollowing(array);
-        // following == array
       }
       )
+    }
   }
-
+  
+  useEffect(() => {
+   if (location?.lat && location?.lon) {
+     searchFollowing();
+   }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [location])
 
 
   const integer = (number) => {
     return Math.floor(Math.round(number));
   }
- 
+
 
   const mapped = (following) => {
     following = [...following];
@@ -107,7 +107,7 @@ function App() {
             className="search-bar"
             placeholder="Search for a location..."
             onChange={e => setQuery(e.target.value)}
-            onKeyPress={search}
+            onKeyDown={search}
             value={query}
           />
         </div>
@@ -157,7 +157,7 @@ function App() {
                 </p>
               </div>
             </div>
-            <Chart following={following} />
+            <Chart1 following={following} />
             <div className="followingdays"
             >
               {mapped(following)}

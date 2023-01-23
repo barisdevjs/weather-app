@@ -94,9 +94,9 @@ main {
   display: flex;
   background-color: rgba(0,0,0,.8);
   border-radius: 50%;
-  width: 25%;
-  height: 40%;
-  padding: 15px 25px;
+  height: 15rem;
+  width: 15rem;
+  padding: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -116,7 +116,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 55%;
+  width: 35%;
   margin: 0 auto;
   border-radius: 16px;
   flex-direction: column;
@@ -134,11 +134,11 @@ main {
 
 .followingdays {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 90vw;
   height: 30vh;
-  margin-top: 3vmin;
+  margin-top: 5vmin;
   margin-right: auto;
   margin-left: auto;
   background-color: rgba(0,0,0,.3);
@@ -167,14 +167,14 @@ main {
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
   grid-template-areas: 
   "location weather weather"
   "line line line"
-  "following following following";
+  "following following following"
+  "following following following"
+  ;
 }
 
 .location-box {
@@ -195,8 +195,6 @@ main {
 
 .line {
   grid-area: line;
-  display: flex;
-  justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -205,4 +203,5 @@ main {
 .followingdays {
   grid-area: following;
 }
+
 

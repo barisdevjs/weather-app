@@ -1,15 +1,17 @@
 import React, {  useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 // eslint-disable-next-line no-unused-vars
-import { Chart as ChartJS} from 'chart.js/auto';
-
-
-
-const Chart = ({following}) => {
+import { Chart as ChartJS, defaults, LinearScale} from 'chart.js';
+import {  registerables } from 'chart.js';
+ChartJS.register(LinearScale);
+ChartJS.register(...registerables);
+defaults.font.size=24;
+defaults.color='lightblue';
+console.log(defaults)
+const Chart1 = ({following}) => {
   const date = following.map(item => new Date(item.dt * 1000));
   const dateLocal = date.map(item => item.toLocaleString('default', { weekday: 'long' }));
   const temp = following.map(item => Math.floor(item.temp.day));
-  console.log(temp)
   // if userData changes then the chart will re-render
     useEffect(() => {
       setUserData({ 
@@ -19,8 +21,6 @@ const Chart = ({following}) => {
             data: temp,       
             label: 'Sıcaklık', 
             backgroundColor: [
-              'rgba(0, 0, 0,.5)',
-              'rgba(0, 0, 0,.5)',
               'rgba(0, 0, 0,.5)', 
             ],
             fill:true,  
@@ -40,10 +40,11 @@ const Chart = ({following}) => {
             scales: {
               xAxes: [{
                 gridLines: {
-                  display: false,
+                  display: true,
                 },
                 ticks: {
-                  fontColor: 'green'
+                  fontColor: 'red',
+                  fontSize: 33
                 }
               }],
               yAxes: [{
@@ -121,5 +122,5 @@ const Chart = ({following}) => {
   ) 
 }; 
   
-export default Chart;
+export default Chart1;
    
