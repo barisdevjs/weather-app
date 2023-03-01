@@ -1,5 +1,7 @@
 # This is a weather app by reactjs
 ---
+## In the root directory of the app run `npm start`. App will run at PORT:3000
+---
 
 ## DEMO
 
