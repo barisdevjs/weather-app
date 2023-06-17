@@ -27,30 +27,30 @@ function App() {
           searchFollowing();
         }
         )
-      }
+    }
   }
 
 
 
-  
+
   const searchFollowing = async () => {
     if (location?.lat && location?.lon) {
       await fetch(`${api.base2}onecall?lat=${location.lat}&lon=${location.lon}&units=metric&exclude=hourly,minutely&appid=${api.key}`)
-      .then(res => res.json())
-      .then(result2 => {
-        const array = result2.daily.slice(1, 6);
-        setFollowing(array);
-      }
-      )
+        .then(res => res.json())
+        .then(result2 => {
+          const array = result2.daily.slice(1, 6);
+          setFollowing(array);
+        }
+        )
     }
   }
-  
+
   useEffect(() => {
-   if (location?.lat && location?.lon) {
-     searchFollowing();
-   }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [location])
+    if (location?.lat && location?.lon) {
+      searchFollowing();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location])
 
 
   const integer = (number) => {
@@ -106,28 +106,28 @@ function App() {
             type="text"
             className="search-bar"
             placeholder="Search for a location..."
-            onChange={e => setQuery(e.target.value)}
+            onChange={e => setQuery(e.target.value.trim())}
             onKeyDown={search}
             value={query}
           />
         </div>
         {(typeof weather.main != "undefined") ? (
           <div className="content">
-            <div className="location-box">
-              <div className="location">
-                {weather.name}, {weather.sys.country}
-              </div>
-              <div className="date"> {dateBuild(new Date())}
-              </div>
-            </div>
             <div className="weather-box">
+              <div className="location-box">
+                <div className="location">
+                  {weather.name}, {weather.sys.country}
+                </div>
+                <div className="date"> {dateBuild(new Date())}
+                </div>
+              </div>
               <div className="temp">
                 {Math.round(weather.main.temp)}°C
                 <img
                   src={`http://openweathermap.org/img/wn/${weather.weather[0].icon.slice(0, 2)}d.png`}
                   alt='weather'
-                  width={150}
-                  height={150}
+                  width={100}
+                  height={100}
                 />
               </div>
               <div className="weather">
