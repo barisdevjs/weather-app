@@ -112,12 +112,12 @@ const Chart1 = ({following}) => {
   });
 
   return (
-    <div className="line" style={{ width:'80vw', height:'80vh'}}>
-    <Line className="actual-chart"
+
+    <Line 
       data={userData}
       redraw={true}
-     />    
-    </div>
+      options={{responsive:true}}
+      />    
   ) 
 }; 
   

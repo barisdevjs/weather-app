@@ -116,7 +116,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35%;
+  width: 25rem;
+  padding: .5rem 1rem;
   margin: 0 auto;
   border-radius: 16px;
   flex-direction: column;
@@ -137,14 +138,17 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   width: 90vw;
-  height: 30vh;
+  height: auto;
   margin-top: 5vmin;
   margin-right: auto;
   margin-left: auto;
   background-color: rgba(0,0,0,.3);
   color: #fff;
   border-radius: 16px;
+  padding-block: 1rem;
 }
 
 .followingdays:hover {
@@ -156,8 +160,8 @@ main {
   background-color: rgba(0,0,0,.5);
   color: #fff;
   border-radius: 50%;
-  width: 13%;
-  height: 90%;
+  width: 15rem;
+  height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,7 +169,7 @@ main {
 }
 
 .content {
-  display: grid;
+  /* display: grid;
   width: 100%;
   height: 100%;
   grid-template-rows: 1fr 1.75fr 1fr;
@@ -175,7 +179,8 @@ main {
   "line line line"
   "following following following"
   "following following following"
-  ;
+  ; */
+  display: block;
 }
 
 .location-box {
@@ -204,7 +209,6 @@ main {
 
 .followingdays {
   grid-area: following;
-  margin-top: 3rem;
 }
 
 
